@@ -263,7 +263,7 @@ def convert_openapi_to_mcp_tools(
             annotations = types.ToolAnnotations(
                 title=operation_id,
                 readOnlyHint=(method == "get"),
-                destructiveHint=(method == "delete"),
+                destructiveHint=(method in ("post", "put", "patch", "delete")),
                 openWorldHint=True,  # All generated tools call external APIs
             )
 
